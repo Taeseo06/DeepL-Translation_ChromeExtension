@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "DeepL Translator",
+    "version": "1.0",
+    "description": "Translate text using DeepL API.",
+    "permissions": ["activeTab", "https://api-free.deepl.com/*"],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "/icons/path_to_save_image_16.png",
+            "48": "/icons/path_to_save_image_48.png",
+            "128": "/icons/path_to_save_image_128.png"
+        }
+    }
+}

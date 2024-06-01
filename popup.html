@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>DeepL Translator</title>
+<link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+<div class="container">
+    <div class="header">
+    <img src="https://cdn-icons-png.flaticon.com/128/4534/4534781.png" alt="Translator Icon" class="icon">
+    <h1>DeepL API 번역기</h1>
+    </div>
+
+    <textarea id="input-text" placeholder="변환할 영어 단어/문장을 입력하세요"></textarea>
+    <div class="controls">
+    <button id="translate-btn">번역</button>
+    <button id="copy-btn">복사</button>
+    <button id="clear-btn">초기화</button>
+    <button id="toggle-lang-btn">언어 변환</button>
+    </div>
+    <textarea id="output-text" placeholder="번역된 한국어 단어/문장이 표시됩니다" readonly></textarea>
+
+    <div class="footer">
+    <a class="made">- made by 문태서</a>
+    <button id="help-btn" class="help-btn">
+        <img src="https://cdn-icons-png.flaticon.com/128/7358/7358464.png" alt="Help Icon">
+    </button>
+    </div>
+
+    <div id="help-popup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" id="close-popup-btn">&times;</span>
+        <h2>DeepL API 번역기 설명서</h2>
+        <p>무료 DeepL API를 사용하여 텍스트를 번역합니다.</p>
+        <hr>
+        <p>다음 기능들을 제공합니다: </p>
+        <ul>
+        <li>번역: 텍스트를 번역합니다. (엔터키)</li>
+        <li>복사: 번역된 텍스트를 복사합니다.</li>
+        <li>초기화: 입력 및 출력 필드를 초기화합니다.</li>
+        <li>언어변환: 입력 및 출력 언어를 전환합니다. 영어-한국어</li>
+        </ul>
+        <hr>
+        <a>DeepL API 무료 요금제-> 한 달에 50만자 까지 번역 가능합니다.</a>
+        <br>
+        <br>
+        <a>제작자: <b>문태서 </b>/ DM문의: <b>taeseo_06</b></a>
+        <br>
+        <a href="https://github.com/Taeseo06" , target='_blank'>제작자 깃허브</a>
+        <br>
+        <a href="https://github.com/Taeseo06/DeepL-Translation_ChromeExtension" , target='_blank'>프로젝트 깃허브</a>
+    </div>
+    </div>
+</div> 
+<script src="popup.js"></script>
+</body>
+
+</html>
