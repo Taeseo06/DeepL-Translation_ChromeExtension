@@ -4,4 +4,6 @@
  <hr>
 
  
- manifest.json 파일에 들어갈 DeepL API key는 제외하고 업로드 하였으니, 프로젝트를 정상적으로 작동 하려면 DeepL 웹사이트에서 무료 api 발급 후 사용하시면됩니다.
+ popup.js 파일에 들어갈 DeepL API key는 제외하고 업로드 하였으니, 프로젝트를 정상적으로 작동 하려면 DeepL 웹사이트에서 무료 api 발급 후 사용하시면됩니다.
+<br></br>
+ <b>DeepL 제공 무료 API는 한 달에 500,000자까지 번역 가능합니다.</b>
