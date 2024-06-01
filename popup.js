@@ -15,54 +15,64 @@ const params = new URLSearchParams({
     target_lang: outputLang
 });
 
-fetch(`${url}?${params.toString()}`).then((response) => response.json()).then((data) => {
-    document.getElementById("output-text").value = data.translations[0].text;}).catch((error) => {
-    console.error("Error:", error);
+fetch(`${url}?${params.toString()}`).then(response => {
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.json();
+}).then(data => {
+    if (data.translations && data.translations.length > 0) {
+        document.getElementById('output-text').value = data.translations[0].text;
+    } else {
+        throw new Error('No translations found');
+    }}).catch(error => {
+    console.error('Error:', error);
+    document.getElementById('output-text').value = '번역 중 오류가 발생했습니다.';
     });
 }
 
 document.getElementById("translate-btn").addEventListener("click", translate);
 
 document.getElementById("copy-btn").addEventListener("click", () => {
-const outputText = document.getElementById("output-text");
-outputText.select();
-document.execCommand("copy");
+    const outputText = document.getElementById("output-text");
+    outputText.select();
+    document.execCommand("copy");
 });
 
 document.getElementById("clear-btn").addEventListener("click", () => {
-document.getElementById("input-text").value = "";
-document.getElementById("output-text").value = "";
+    document.getElementById("input-text").value = "";
+    document.getElementById("output-text").value = "";
 });
 
 document.getElementById("toggle-lang-btn").addEventListener("click", () => {
-if (inputLang === "EN") {
-    inputLang = "KO";
-    outputLang = "EN";
-    checkLang = "한국어";
-    checkLang2 = "영어";
-} else if (inputLang === "KO") {
-    inputLang = "EN";
-    outputLang = "KO";
-    checkLang = "영어";
-    checkLang2 = "한국어";
-}
-document.getElementById("toggle-lang-btn").textContent = outputLang + " -> " + inputLang;
-document.getElementById("input-text").placeholder = `변환할 ${checkLang} 단어/문장을 입력하세요`;
-document.getElementById("output-text").placeholder = `번역된 ${checkLang2} 단어/문장이 표시됩니다`;
-document.getElementById("clear-btn").click();
+    if (inputLang === "EN") {
+        inputLang = "KO";
+        outputLang = "EN";
+        checkLang = "한국어";
+        checkLang2 = "영어";
+    } else if (inputLang === "KO") {
+        inputLang = "EN";
+        outputLang = "KO";
+        checkLang = "영어";
+        checkLang2 = "한국어";
+    }
+    document.getElementById("toggle-lang-btn").textContent = outputLang + " -> " + inputLang;
+    document.getElementById("input-text").placeholder = `변환할 ${checkLang} 단어/문장을 입력하세요`;
+    document.getElementById("output-text").placeholder = `번역된 ${checkLang2} 단어/문장이 표시됩니다`;
+    document.getElementById("clear-btn").click();
 });
 
 document.getElementById("input-text").addEventListener("keypress", (event) => {
-if (event.key === "Enter" && !event.shiftKey) {
-    event.preventDefault();
-    translate();
-}
+    if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault();
+        translate();
+    }
 });
 
 document.getElementById("help-btn").addEventListener("click", () => {
-document.getElementById("help-popup").style.display = "block";
+    document.getElementById("help-popup").style.display = "block";
 });
 
 document.getElementById("close-popup-btn").addEventListener("click", () => {
-document.getElementById("help-popup").style.display = "none";
+    document.getElementById("help-popup").style.display = "none";
 });

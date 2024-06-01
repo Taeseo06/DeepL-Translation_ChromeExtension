@@ -3,7 +3,8 @@
     "name": "DeepL Translator",
     "version": "1.0",
     "description": "Translate text using DeepL API.",
-    "permissions": ["activeTab", "https://api-free.deepl.com/*"],
+    "permissions": ["activeTab", "https://*.api-free.deepl.com/*"],
+    "host_permissions": ["https://*.api-free.deepl.com/*"],
     "action": {
         "default_popup": "popup.html",
         "default_icon": {
